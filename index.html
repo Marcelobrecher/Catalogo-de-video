@@ -1,53 +1,158 @@
-html lang="pt-BR">
-
+/site-de-vendas
+    index.html
+    style.css
+    script.js
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-        rel="stylesheet">
-    <title>Guiminamflix</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site de Vendas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <header>GUIMINAMFLIX</header>
 
-    <section class="chamada">
-        <div class="chamada-texto">
-            <h1>ATRAVÉS DO ARANHAVERSO</h1>
-            <p>#homem-aranha</p>
+    <header>
+        <h1>Loja Online</h1>
+        <div class="carrinho">
+            <button onclick="verCarrinho()">Carrinho (<span id="carrinho-contagem">0</span>)</button>
         </div>
+    </header>
 
-        <div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/gt_fAE1Eg2Q?si=EEv-tsY_b1B2OwKE"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <main>
+        <h2>Produtos</h2>
+        <div class="produtos">
+            <div class="produto">
+                <img src="sg-11134201-7rcdd-ltxt7koya70545.jpeg" alt="Produto 1">
+                <h3>Produto 1</h3>
+                <p>R$ 100,00</p>
+                <button onclick="adicionarCarrinho('Produto 1', 100)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto">
+                <img src="21536147_52419902_600.webp" alt="Produto 2">
+                <h3>Produto 2</h3>
+                <p>R$ 150,00</p>
+                <button onclick="adicionarCarrinho('Produto 2', 150)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto">
+                <img src="img_2261-bfda081c96e069626b17529661931534-1024-1024.jpg"Produto 3">
+                <h3>Produto 3</h3>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarCarrinho('Produto 3', 200)">Adicionar ao Carrinho</button>
+            </div>
         </div>
-    </section>
+    </main>
 
-    <section class="categoria">
-        <h2>Filmes e séries</h2>
-        <div class="categoria-videos">
-            <a href="https://www.youtube.com/watch?v=cs15QqG6Gjc">
-                <img src="https://img.youtube.com/vi/cs15QqG6Gjc/maxresdefault.jpg" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=nCmIwcycUJ8">
-                <img src="https://img.youtube.com/vi/nCmIwcycUJ8/maxresdefault.jpg" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=FvRmEapoHRc">
-                <img src="https://img.youtube.com/vi/FvRmEapoHRc/maxresdefault.jpg" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=Ipkw_hWW-Hw">
-                <img src="https://img.youtube.com/vi/Ipkw_hWW-Hw/maxresdefault.jpg" />
-            </a>
-            <a href="https://www.youtube.com/watch?v=d4DzMNGoyis">
-                <img src="https://img.youtube.com/vi/d4DzMNGoyis/maxresdefault.jpg" />
-            </a>
-        </div>
-    </section>
+    <footer>
+        <p>&copy; 2025 Loja Online - Todos os direitos reservados.</p>
+    </footer>
 
+    <script src="script.js"></script>
 </body>
-
 </html>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.carrinho button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.carrinho button:hover {
+    background-color: #ff3300;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.produtos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.produto {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.produto img {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.produto button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.produto button:hover {
+    background-color: #218838;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+let carrinho = [];
+
+function adicionarCarrinho(nome, preco) {
+    carrinho.push({ nome, preco });
+    document.getElementById("carrinho-contagem").textContent = carrinho.length;
+    alert(`${nome} foi adicionado ao carrinho!`);
+}
+
+function verCarrinho() {
+    if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+    } else {
+        let itensCarrinho = "Itens no carrinho:\n";
+        carrinho.forEach((item, index) => {
+            itensCarrinho += `${index + 1}. ${item.nome} - R$ ${item.preco.toFixed(2)}\n`;
+        });
+        let total = carrinho.reduce((total, item) => total + item.preco, 0);
+        itensCarrinho += `\nTotal: R$ ${total.toFixed(2)}`;
+        alert(itensCarrinho);
+    }
+}
