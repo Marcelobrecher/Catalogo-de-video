@@ -1,7 +1,3 @@
-/site-de-vendas
-    index.html
-    style.css
-    script.js
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,16 +22,34 @@
                 <img src="sg-11134201-7rcdd-ltxt7koya70545.jpeg" alt="Produto 1">
                 <h3>Produto 1</h3>
                 <p>R$ 100,00</p>
-                <button onclick="adicionarCarrinho('Produto 1', 100)">Adicionar ao Carrinho</button>
+                <button onclick="adicionarCarrinho('Produto 1', 300)">Adicionar ao Carrinho</button>
             </div>
             <div class="produto">
                 <img src="21536147_52419902_600.webp" alt="Produto 2">
                 <h3>Produto 2</h3>
                 <p>R$ 150,00</p>
-                <button onclick="adicionarCarrinho('Produto 2', 150)">Adicionar ao Carrinho</button>
+                <button onclick="adicionarCarrinho('Produto 2', 350)">Adicionar ao Carrinho</button>
             </div>
             <div class="produto">
                 <img src="img_2261-bfda081c96e069626b17529661931534-1024-1024.jpg"Produto 3">
+                <h3>Produto 3</h3>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarCarrinho('Produto 3', 400)">Adicionar ao Carrinho</button>
+            </div>
+            <div class="produto">
+                <img src="180_tenis_tesla_unissex_camurca_hertz_black_art_purple_preto_7904_1_7fddf0ad5a7ebe684e5ae88263912d49.webp">
+                <h3>Produto 3</h3>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarCarrinho('Produto 3', 300)">Adicionar ao Carrinho</button>
+            </div>
+                        <div class="produto">
+                <img src="b590dd5a_288x.avif">
+                <h3>Produto 3</h3>
+                <p>R$ 200,00</p>
+                <button onclick="adicionarCarrinho('Produto 3', 300)">Adicionar ao Carrinho</button>
+            </div>
+                        <div class="produto">
+                <img src="tenis-nike-corteiz-x-air-max-95-sp-rules-the-world-aegean-storm-b351de6cb2d630e47c17006046648764-480-0.png">
                 <h3>Produto 3</h3>
                 <p>R$ 200,00</p>
                 <button onclick="adicionarCarrinho('Produto 3', 200)">Adicionar ao Carrinho</button>
@@ -50,109 +64,4 @@
     <script src="script.js"></script>
 </body>
 </html>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
-
-header {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-.carrinho button {
-    background-color: #ff6600;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
-
-.carrinho button:hover {
-    background-color: #ff3300;
-}
-
-main {
-    padding: 20px;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.produtos {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.produto {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 200px;
-    text-align: center;
-    padding: 15px;
-    margin: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.produto img {
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-
-.produto button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px;
-    width: 100%;
-    cursor: pointer;
-}
-
-.produto button:hover {
-    background-color: #218838;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-let carrinho = [];
-
-function adicionarCarrinho(nome, preco) {
-    carrinho.push({ nome, preco });
-    document.getElementById("carrinho-contagem").textContent = carrinho.length;
-    alert(`${nome} foi adicionado ao carrinho!`);
-}
-
-function verCarrinho() {
-    if (carrinho.length === 0) {
-        alert("Seu carrinho está vazio!");
-    } else {
-        let itensCarrinho = "Itens no carrinho:\n";
-        carrinho.forEach((item, index) => {
-            itensCarrinho += `${index + 1}. ${item.nome} - R$ ${item.preco.toFixed(2)}\n`;
-        });
-        let total = carrinho.reduce((total, item) => total + item.preco, 0);
-        itensCarrinho += `\nTotal: R$ ${total.toFixed(2)}`;
-        alert(itensCarrinho);
-    }
-}

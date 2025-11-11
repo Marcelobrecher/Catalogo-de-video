@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.carrinho button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.carrinho button:hover {
+    background-color: #ff3300;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.produtos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.produto {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.produto img {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.produto button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.produto button:hover {
+    background-color: #218838;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+let carrinho = [];
+
+function adicionarCarrinho(nome, preco) {
+    carrinho.push({ nome, preco });
+    document.getElementById("carrinho-contagem").textContent = carrinho.length;
+    alert(`${nome} foi adicionado ao carrinho!`);
+}
+
+function verCarrinho() {
+    if (carrinho.length === 0) {
+        alert("Seu carrinho está vazio!");
+    } else {
+        let itensCarrinho = "Itens no carrinho:\n";
+        carrinho.forEach((item, index) => {
+            itensCarrinho += `${index + 1}. ${item.nome} - R$ ${item.preco.toFixed(2)}\n`;
+        });
+        let total = carrinho.reduce((total, item) => total + item.preco, 0);
+        itensCarrinho += `\nTotal: R$ ${total.toFixed(2)}`;
+        alert(itensCarrinho);
+    }
+}
